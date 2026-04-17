@@ -34,6 +34,9 @@ lerna-debug.log*
 *.sw?
 .DS_Store
 Thumbs.db
+*.png
+*.jpg
+*.jpeg
 
 # TypeScript
 *.tsbuildinfo
