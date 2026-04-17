@@ -103,6 +103,17 @@ npm run dev
 # App starts at http://localhost:3000
 ```
 
+### 4. Demo Credentials
+
+The app uses MSW to mock the API in development — no backend required.
+
+| Field | Value |
+|---|---|
+| Email | `demo@example.com` |
+| Password | `password123` |
+
+You can also register a new account at `/register` and it will work out of the box.
+
 ---
 
 ## 🐳 Docker
