@@ -1,0 +1,41 @@
+version: '3.9'
+
+services:
+  # ─── App (Production build) ──────────────────────────────────────────────────
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: react-ts-app
+    ports:
+      - '80:80'
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    networks:
+      - app-network
+
+  # ─── App (Dev with HMR) ──────────────────────────────────────────────────────
+  app-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: react-ts-app-dev
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    restart: unless-stopped
+    profiles:
+      - dev
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
