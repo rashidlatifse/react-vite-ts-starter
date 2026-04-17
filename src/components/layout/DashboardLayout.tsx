@@ -180,13 +180,28 @@ const DashboardLayout = () => {
               anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
               PaperProps={{ sx: { mt: 1, minWidth: 180 } }}
             >
-              <MenuItem onClick={() => { navigate('/profile'); handleMenuClose() }}>
-                <ListItemIcon><PersonIcon fontSize="small" /></ListItemIcon>
+              <MenuItem
+                onClick={() => {
+                  navigate('/profile')
+                  handleMenuClose()
+                }}
+              >
+                <ListItemIcon>
+                  <PersonIcon fontSize="small" />
+                </ListItemIcon>
                 Profile
               </MenuItem>
               <Divider />
-              <MenuItem onClick={() => { logout(); handleMenuClose() }} sx={{ color: 'error.main' }}>
-                <ListItemIcon><LogoutIcon fontSize="small" color="error" /></ListItemIcon>
+              <MenuItem
+                onClick={() => {
+                  logout()
+                  handleMenuClose()
+                }}
+                sx={{ color: 'error.main' }}
+              >
+                <ListItemIcon>
+                  <LogoutIcon fontSize="small" color="error" />
+                </ListItemIcon>
                 Logout
               </MenuItem>
             </Menu>

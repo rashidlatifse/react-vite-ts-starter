@@ -1,13 +1,14 @@
 import { http, HttpResponse } from 'msw'
+import type { User } from '@/types'
 
 const BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api'
 
-const DEMO_USER = {
+const DEMO_USER: User = {
   id: '1',
   email: 'demo@example.com',
   firstName: 'Demo',
   lastName: 'User',
-  role: 'admin' as const,
+  role: 'admin',
   avatar: undefined,
   createdAt: new Date().toISOString(),
   updatedAt: new Date().toISOString(),
@@ -19,7 +20,7 @@ const TOKENS = {
   expiresIn: 900,
 }
 
-const users: typeof DEMO_USER[] = [{ ...DEMO_USER }]
+const users: User[] = [{ ...DEMO_USER }]
 
 export const handlers = [
   http.post(`${BASE}/auth/login`, async ({ request }) => {

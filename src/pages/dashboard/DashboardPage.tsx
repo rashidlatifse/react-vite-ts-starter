@@ -1,10 +1,5 @@
 import { Box, Grid, Card, CardContent, Typography, Avatar, Chip } from '@mui/material'
-import {
-  TrendingUp,
-  People,
-  Assignment,
-  CheckCircle,
-} from '@mui/icons-material'
+import { TrendingUp, People, Assignment, CheckCircle } from '@mui/icons-material'
 import { useAppSelector } from '@/hooks/useAppDispatch'
 
 const stats = [
@@ -39,7 +34,9 @@ const DashboardPage = () => {
             >
               <CardContent sx={{ p: 3 }}>
                 <Box display="flex" alignItems="center" justifyContent="space-between" mb={2}>
-                  <Avatar sx={{ bgcolor: `${stat.color}20`, color: stat.color, width: 44, height: 44 }}>
+                  <Avatar
+                    sx={{ bgcolor: `${stat.color}20`, color: stat.color, width: 44, height: 44 }}
+                  >
                     {stat.icon}
                   </Avatar>
                   <Chip

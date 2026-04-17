@@ -2,12 +2,16 @@ import axiosInstance from '@/lib/axios'
 import type { ApiResponse, AuthTokens, LoginCredentials, RegisterCredentials, User } from '@/types'
 
 export const authService = {
-  login: async (credentials: LoginCredentials): Promise<ApiResponse<{ user: User; tokens: AuthTokens }>> => {
+  login: async (
+    credentials: LoginCredentials
+  ): Promise<ApiResponse<{ user: User; tokens: AuthTokens }>> => {
     const { data } = await axiosInstance.post('/auth/login', credentials)
     return data
   },
 
-  register: async (credentials: RegisterCredentials): Promise<ApiResponse<{ user: User; tokens: AuthTokens }>> => {
+  register: async (
+    credentials: RegisterCredentials
+  ): Promise<ApiResponse<{ user: User; tokens: AuthTokens }>> => {
     const { data } = await axiosInstance.post('/auth/register', credentials)
     return data
   },
